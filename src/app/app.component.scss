@@ -1,0 +1,103 @@
+$font-montserrat: 'Montserrat', sans-serif;
+$font-righteous: 'Righteous', cursive;
+
+$dark-green: #5e6948;
+$light-purple: #a294c5;
+$white: #ffffff;
+
+input {
+  outline: none;
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+.common-limiter{
+    width: 100%;
+    max-width: 1600px;
+    padding: 0px 32px;
+    margin: 0px auto;
+}
+
+.header{
+    width: 100%;
+    padding: 12px 0px;
+    box-shadow: 0px 6px 15px -2px rgba(0,0,0,0.2);
+    background: $light-purple;
+
+    .common-limiter{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo{
+            margin: 0px 20px 0px 0px;
+            font-size: 32px;
+            font-family: $font-righteous;
+            color: $dark-green;
+        }
+
+        .inputs{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .wrap-input{
+                margin-right: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                label{
+                    margin-bottom: 4px;
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: $dark-green;
+                }
+
+                .common-input{
+                    width: 90px;
+                    height: 30px;
+                    border-radius: 4px;
+                    padding: 0px 8px;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.page-content{
+    padding: 40px;
+
+    .common-limiter{
+        display: flex;
+        justify-content: center;
+
+        .maze{
+            width: 500px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 50px);
+
+            .maze-item{
+                width: 100%;
+                height: 100%;
+                border: 2px solid $dark-green;
+                border-right: 0px;
+                border-bottom: 0px;
+
+                &:nth-child(10n + 0){
+                    border-right: 2px solid $dark-green;
+                }
+
+                &.border-bottom{
+                    border-bottom: 2px solid $dark-green;
+                }
+            }
+        }
+    }
+}
