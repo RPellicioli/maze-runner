@@ -6,24 +6,28 @@
 
         <div class="inputs">
             <div class="wrap-input">
-                <label for="">Crossover</label>
-                <input type="text" class="common-input" id="" />
+                <label for="crossover">Crossover</label>
+                <input type="text" [(ngModel)]="crossover" class="common-input" id="crossover" />
             </div>
 
             <div class="wrap-input">
-                <label for="">Mutação</label>
-                <input type="text" class="common-input" id="" />
+                <label for="mutation">Mutação</label>
+                <input type="text" [(ngModel)]="mutation" class="common-input" id="mutation" />
             </div>
 
             <div class="wrap-input">
-                <label for="">Gerações</label>
-                <input type="text" class="common-input" id="" />
+                <label for="population">População</label>
+                <input type="text" [(ngModel)]="population" class="common-input" id="population" />
             </div>
 
             <div class="wrap-input">
-                <label for="">População</label>
-                <input type="text" class="common-input" id="" />
+                <label for="maxGenerations">Max. Gerações</label>
+                <input type="text" [(ngModel)]="maxGenerations" class="common-input" id="maxGenerations" />
             </div>
+
+            <button class="common-button" (click)="start()">
+                Start
+            </button>
         </div>
     </div>
 </section>
@@ -31,8 +35,8 @@
 <section class="page-content">
     <div class="common-limiter">
         <div class="maze">
-            <div class="maze-item" *ngFor="let item of maze; let i = index " [ngClass]="{'border-bottom': i > 89 }">
-                {{i}}
+            <div class="maze-item" *ngFor="let block of maze; let i = index " [ngClass]="{'border-bottom': i > 89 }">
+                <div class="block" [ngClass]="{'w-top': block.wTop, 'w-right': block.wRight, 'w-bottom': block.wBottom, 'w-left': block.wLeft}"></div>
             </div>
         </div>
     </div>
