@@ -63,6 +63,7 @@ input {
                     border-radius: 4px;
                     padding: 0px 8px;
                     border: none;
+                    outline: none;
                 }
             }
 
@@ -79,6 +80,7 @@ input {
                 align-items: center;
                 align-self: flex-end;
                 transition: .3s ease;
+                outline: none;
 
                 &:hover{
                     background: #f5851d;
@@ -94,7 +96,8 @@ input {
 
     .common-limiter{
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+        align-items: stretch;
 
         .maze{
             width: 500px;
@@ -140,6 +143,18 @@ input {
                     }
                 }
             }
+        }
+
+        .console-log{
+            width: 40%;
+            height: 500px;
+            padding: 12px 24px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-wrap: break-word;
+            box-sizing: border-box;
         }
     }
 }
