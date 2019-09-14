@@ -25,8 +25,8 @@
                 <input type="text" [(ngModel)]="maxGenerations" class="common-input" id="maxGenerations" />
             </div>
 
-            <button class="common-button" (click)="start()">
-                Start
+            <button class="common-button" [disabled]="isLoading" (click)="start()">
+                <span>Start</span>
             </button>
         </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="common-limiter">
         <div class="maze">
             <div class="maze-item" *ngFor="let block of maze; let i = index " [ngClass]="{'border-bottom': i > 89 }">
-                <div class="block" [ngClass]="{'w-top': block.wTop, 'w-right': block.wRight, 'w-bottom': block.wBottom, 'w-left': block.wLeft}"></div>
+                <div class="block" [ngClass]="{'w-top': block.wTop, 'w-right': block.wRight, 'w-bottom': block.wBottom, 'w-left': block.wLeft, 'active': block.active}"></div>
             </div>
         </div>
 
