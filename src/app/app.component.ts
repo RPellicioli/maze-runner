@@ -9,7 +9,7 @@ export class AppComponent {
     public maze: Array<Block> = [];
     public eltismo: boolean = true;
     public crossover: number = 0.7;
-    public mutation: number = 0.5;
+    public mutation: number = 0.3;
     public populationLength: number = 100;
     public maxGenerations: number = 100;
     public solution: string = "0101011010010110010000000110101010100101101010111001";
@@ -1006,7 +1006,10 @@ export class AppComponent {
         let currentField = this.maze.find(m => m.current);
 
         let verifyMove = (direction: Direction, cantMove: boolean): void => {
+            //Verifica se a direção está dentro das possíveis direções do campo atual no labirinto
             if (currentField.possibleDirections.findIndex(d => d == direction) > -1) {
+
+                //Verifica se a parede na direção que ele deseja ir
                 if (cantMove) {
                     individuo.fitness -= 10;
                     individuo.wallsHit++;
@@ -1015,6 +1018,7 @@ export class AppComponent {
                     individuo.fitness += 10;
                 }
 
+                //Verifica o bot já passou por esse campo antes
                 if (fieldsTraveled.findIndex(f => f.id == currentField.id) > -1) {
                     individuo.fitness -= 50;
                 }
@@ -1023,6 +1027,7 @@ export class AppComponent {
                 }
             }
             else {
+                //Verifica o bot já passou por esse campo antes
                 if (fieldsTraveled.findIndex(f => f.id == currentField.id) > -1) {
                     individuo.fitness -= 70;
                 }
