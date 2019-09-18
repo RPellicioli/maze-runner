@@ -302,11 +302,15 @@ export class AppComponent {
         let currentField = this.maze.find(m => m.current);
 
         let verifyMove = (direction: Direction, cantMove: boolean): void => {
+            //Verifica se a direção está dentro das possíveis direções do campo atual no labirinto
             if (currentField.possibleDirections.findIndex(d => d == direction) > -1) {
+
+                //Verifica se a parede na direção que ele deseja ir
                 if (cantMove) {
                     individuo.wallsHit++;
                 }
 
+                //Verifica o bot já passou por esse campo antes
                 if (fieldsTraveled.findIndex(f => f.id == currentField.id) > -1) {
                     individuo.repeatedInput++;
                 }
@@ -315,6 +319,7 @@ export class AppComponent {
                 }
             }
             else {
+                //Verifica o bot já passou por esse campo antes
                 if (fieldsTraveled.findIndex(f => f.id == currentField.id) > -1) {
                     individuo.repeatedInput++;
                 }
